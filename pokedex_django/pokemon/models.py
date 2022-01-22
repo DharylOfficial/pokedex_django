@@ -11,7 +11,7 @@ class Type(models.Model):
 class Pokemon(models.Model):
     name = models.CharField(max_length=255, null=True, blank=True)
     image_url = models.CharField(max_length=255, null=True, blank=True)
-    types = models.ManyToManyField(Type)
+    types = models.ManyToManyField(Type, blank=True)
     
     def __str__(self) -> str:
         return f"{self.id}: {self.name}"

@@ -25,7 +25,7 @@ def pullPokemon():
         response = requests.get(url)
         data = response.json()
         
-        image_url = data['sprites']['other']['dream_world']['front_default']
+        image_url = data['sprites']['other']['official-artwork']['front_default']
         p = Pokemon(id=data['id'], name=data['name'], image_url=image_url)
         p.save()
         

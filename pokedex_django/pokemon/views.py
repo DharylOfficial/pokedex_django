@@ -34,7 +34,13 @@ def pullPokemon(request):
 def getTypes(request):
     types = actions.getTypes()
     
-    return HttpResponse("Printing Types already in Database")
+    return HttpResponse("Printing Types already in database")
+
+
+def deleteAllPokemon(request):
+    types = actions.deleteAllPokemon()
+    
+    return HttpResponse("Deleted all Pokemon from database.")
 
 
 # Create experimental views here.

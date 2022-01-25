@@ -1,9 +1,20 @@
 from .models import Type, Pokemon
 import requests
 
+def resetPokedex():
+    deleteAll()
+    pullAll()
+    print("Pokedex reset successfully")
+
 def pullAll():
     pullTypes()
     pullPokemon()
+    print("Pulled all Pokemon from the API")
+        
+def deleteAll():
+    deleteAllPokemon()
+    deleteAllTypes()
+    print("Deleted all Data in the Database")
 
 def pullTypes():
     entire_types_url = "https://pokeapi.co/api/v2/type"
@@ -17,6 +28,8 @@ def pullTypes():
         t = Type(id=data['id'], name=data['name'])
         t.save()
         
+        print(f"Added: {t}")
+        
 def pullPokemon():
     NO_OF_POKEMON = 151
     
@@ -25,7 +38,7 @@ def pullPokemon():
         response = requests.get(url)
         data = response.json()
         
-        image_url = data['sprites']['other']['official-artwork']['front_default']
+        image_url = f"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/{pokemon_id}.gif"
         p = Pokemon(id=data['id'], name=data['name'], image_url=image_url)
         p.save()
         
@@ -42,11 +55,6 @@ def getTypes():
     pokemon_types = Type.objects.all()
     for pokemon_type in pokemon_types:
         print(pokemon_type)
-        
-def deleteAll():
-    deleteAllPokemon()
-    deleteAllTypes()
-    print("Deleted all Data in the Database")
         
 def deleteAllTypes():
     types = Type.objects.all()

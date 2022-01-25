@@ -9,4 +9,5 @@ router.register("pokemon", views.PokemonViewSet, basename="pokemon")
 
 urlpatterns = [
     path("", include(router.urls)),
+    path("reset/", views.resetPokedexEndpoint, name="resetPokedex")
 ]

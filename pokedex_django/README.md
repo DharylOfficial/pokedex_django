@@ -9,14 +9,23 @@ References to the OFFICIAL POKEDEX SITE point to https://pokeapi.co
 ## SETTING UP
 
 1. Open terminal where you want to download the project then run
+
    - git clone https://github.com/DharylOfficial/pokedex_django
+
 2. Go into the next two pokedex_django folders
+
    - /pokedex_djang/pokedex_django
+
 3. Run a virtual python environment
+
    - pipenv shell
+
 4. Install the necessary requirements
+
    - pip install -r requirements.txt
+
 5. Run the development server
+
    - python manage.py runserver
 
 ## AVAILABLE ENDPOINTS

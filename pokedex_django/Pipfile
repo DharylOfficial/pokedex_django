@@ -8,6 +8,8 @@ django-rest-framework-nested = "*"
 django-cors-headers = "*"
 
 [dev-packages]
+pytest-django = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.9"
